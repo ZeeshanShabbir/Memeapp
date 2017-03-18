@@ -121,6 +121,8 @@ class MemeEditorViewController: UIViewController , UIImagePickerControllerDelega
         imagePickerView.image = nil
         topText.text = "TOP"
         bottomText.text = "BOTTOM"
+        
+       self.dismiss(animated: true, completion: nil)
 
     }
   
@@ -135,7 +137,8 @@ class MemeEditorViewController: UIViewController , UIImagePickerControllerDelega
     
     func save (){
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memeImage: generateMemedImage())
-        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.meme.append(meme)
     }
     
     
