@@ -17,6 +17,7 @@ class MemeTableViewController: UITableViewController {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         memes = appDelegate.meme
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

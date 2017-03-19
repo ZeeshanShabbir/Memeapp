@@ -34,8 +34,8 @@ class MemeEditorViewController: UIViewController , UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        topText.delegate = textFieldDelegate
-        bottomText.delegate = textFieldDelegate
+        //topText.delegate = textFieldDelegate
+        //bottomText.delegate = textFieldDelegate
         shareBtn.isEnabled = false
         configureTextField(textfield: topText)
         configureTextField(textfield: bottomText)
@@ -61,8 +61,12 @@ class MemeEditorViewController: UIViewController , UIImagePickerControllerDelega
     }
     
     func configureTextField (textfield: UITextField){
+        //as reviewer said to add line 37 and 38 here, But i have question here. Wouldn't these be called called twice because of line number 40 and 41.
+        topText.delegate = textFieldDelegate
+        bottomText.delegate = textFieldDelegate
         textfield.defaultTextAttributes = memeTextAttributes
         textfield.textAlignment = .center
+        textfield.autocapitalizationType = .allCharacters
     }
 
     
